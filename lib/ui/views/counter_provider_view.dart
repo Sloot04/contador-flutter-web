@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bases_web/providers/counter_provider.dart';
 
-import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:bases_web/ui/shared/custom_flat_buttom.dart';
 
 class CounterProviderView extends StatelessWidget {
@@ -29,8 +28,7 @@ class _CounterProviderViewBody extends StatelessWidget {
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CustomAppMenu(),
-          const Spacer(),
+          
           const Text(
             'Contador Provider',
             style: TextStyle(fontSize: 20.0),
@@ -59,7 +57,7 @@ class _CounterProviderViewBody extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer()
+          
         ],
       );
   }
