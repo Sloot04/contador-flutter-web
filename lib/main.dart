@@ -1,6 +1,8 @@
-import 'package:bases_web/ui/layout/main_layout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bases_web/router/route_generator.dart';
+import 'package:bases_web/ui/layout/main_layout_page.dart';
+
+import 'services/navigation_services.dart';
 //import 'package:bases_web/ui/pages/counter_page.dart';
 //import 'package:bases_web/ui/pages/counter_provider_page.dart';
 
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'RutasApp',
         initialRoute: '/sateful',
         onGenerateRoute: RouteGenerator.generateRoute,
+        navigatorKey: navigationService.navigatorKey,
         builder: (_, child) {
           return   MainLayoutPage(  child: child ?? const CircularProgressIndicator(), );
         });
