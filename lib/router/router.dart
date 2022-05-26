@@ -38,12 +38,13 @@ class Flurorouter {
   // Handlers
   static final Handler _counterHandler =
       Handler(handlerFunc: (context, params) {
-    print(params['base']);
-    return const CounterView();
+    return CounterView(base: params['base']?[0] ?? '5');
   });
 
   static final Handler _counterProviderHandler =
-      Handler(handlerFunc: (context, params) => const CounterProviderView());
+      Handler(handlerFunc: (context, params) {
+    return CounterProviderView(base: params['q']?[0] ?? '10');
+  });
 
 // 404
   static final Handler _pageNotFound =
