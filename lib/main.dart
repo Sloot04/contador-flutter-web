@@ -13,23 +13,28 @@ void main() {
   setupLocator();
   Flurorouter.configureRoutes();
   runApp(const MyApp());
-  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'RutasApp',
-        initialRoute: '/',
-        // onGenerateRoute: RouteGenerator.generateRoute,
-        onGenerateRoute: Flurorouter.router.generator,
-        navigatorKey: locator<NavigationService>().navigatorKey,
-        builder: (_, child) {
-          return   MainLayoutPage(  child: child ?? const CircularProgressIndicator(), );
-        });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'RutasApp',
+      initialRoute: '/',
+      // onGenerateRoute: RouteGenerator.generateRoute,
+      onGenerateRoute: Flurorouter.router.generator,
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      builder: (_, child) {
+        return MainLayoutPage(
+          child: child ?? const CircularProgressIndicator(),
+        );
+      },
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: Colors.white
+      ),
+    );
   }
 }
-
