@@ -13,11 +13,19 @@ class Flurorouter {
       handler: _counterHandler,
       transitionType: TransitionType.fadeIn,
     );
+
     router.define(
-     '/sateful',
+      '/sateful',
       handler: _counterHandler,
       transitionType: TransitionType.fadeIn,
     );
+
+    router.define(
+      '/sateful/:base',
+      handler: _counterHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+
     router.define(
       '/provider',
       handler: _counterProviderHandler,
@@ -29,12 +37,15 @@ class Flurorouter {
 
   // Handlers
   static final Handler _counterHandler =
-      Handler(handlerFunc: (context, params) => const CounterView());
+      Handler(handlerFunc: (context, params) {
+    print(params['base']);
+    return const CounterView();
+  });
 
   static final Handler _counterProviderHandler =
       Handler(handlerFunc: (context, params) => const CounterProviderView());
 
 // 404
- static final Handler _pageNotFound =
+  static final Handler _pageNotFound =
       Handler(handlerFunc: (_, __) => const View404());
 }
